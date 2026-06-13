@@ -35,9 +35,9 @@
 .barista-plugin-page .barista-shell {
     width: min(100%, 380px);
     margin: 0 auto;
-    padding: 18px;
+    padding: 12px;
     display: grid;
-    gap: 14px;
+    gap: 8px;
 }
 
 .barista-plugin-page .legend-card,
@@ -52,10 +52,10 @@
 }
 
 .barista-plugin-page .legend-card {
-    padding: 14px 16px;
+    padding: 10px 14px;
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 10px 12px;
+    gap: 6px 10px;
 }
 
 .barista-plugin-page .legend-item {
@@ -75,7 +75,7 @@
 }
 
 .barista-plugin-page .visual-card {
-    padding: 18px 18px 20px;
+    padding: 12px;
     overflow: hidden;
     position: relative;
 }
@@ -111,9 +111,9 @@
     display: flex;
     align-items: flex-end;
     justify-content: center;
-    gap: 22px;
+    gap: 16px;
     padding-top: 4px;
-    min-height: 220px;
+    min-height: 190px;
 }
 
 .barista-plugin-page .coffee-glass {
@@ -199,8 +199,8 @@
     flex-direction: column;
     align-items: flex-end;
     justify-content: center;
-    min-width: 118px;
-    padding-top: 36px;
+    min-width: 110px;
+    padding-top: 24px;
 }
 
 .barista-plugin-page .speech-bubble {
@@ -377,18 +377,18 @@
 }
 
 .barista-plugin-page .control-card {
-    padding: 16px;
+    padding: 12px;
     display: grid;
-    gap: 12px;
+    gap: 8px;
 }
 
 .barista-plugin-page .live-status {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 12px;
-    padding: 14px 16px;
-    border-radius: 18px;
+    gap: 10px;
+    padding: 10px 14px;
+    border-radius: 14px;
     background: rgba(255, 255, 255, 0.64);
     border: 1px solid rgba(180, 91, 45, 0.1);
 }
@@ -429,8 +429,8 @@
 }
 
 .barista-plugin-page .metric-card {
-    padding: 12px;
-    border-radius: 18px;
+    padding: 8px 10px;
+    border-radius: 14px;
     background: rgba(255, 255, 255, 0.6);
     border: 1px solid rgba(180, 91, 45, 0.08);
 }
@@ -454,12 +454,12 @@
 
 .barista-plugin-page .reveal-btn {
     border: 1px solid rgba(180, 91, 45, 0.16);
-    border-radius: 16px;
-    padding: 12px 14px;
+    border-radius: 14px;
+    padding: 10px 12px;
     background: #fff;
     color: var(--accent);
     font: inherit;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     font-weight: 800;
     cursor: pointer;
     transition: background 0.18s ease, color 0.18s ease, opacity 0.18s ease;
@@ -476,9 +476,9 @@
 
 .barista-plugin-page .preference-panel {
     display: grid;
-    gap: 10px;
-    padding: 14px;
-    border-radius: 18px;
+    gap: 8px;
+    padding: 12px;
+    border-radius: 14px;
     background: rgba(255, 255, 255, 0.68);
     border: 1px solid rgba(180, 91, 45, 0.1);
 }

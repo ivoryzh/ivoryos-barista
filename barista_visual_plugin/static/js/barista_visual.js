@@ -1,5 +1,7 @@
 const CUP_SIZE = 240;
 const POLL_MS = 700;
+const MAX_POLL_MS = 5000;
+let currentPollMs = POLL_MS;
 
 let lastSeq = 0;
 let pollInFlight = false;
@@ -12,7 +14,6 @@ let revealedPreference = null;
 document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("revealPreferenceBtn").addEventListener("click", revealPreference);
     refreshState();
-    window.setInterval(refreshState, POLL_MS);
 });
 
 async function refreshState() {
@@ -33,6 +34,7 @@ async function refreshState() {
         updateMetrics(snapshot);
 
         if (payload.events.length === 0) {
+            currentPollMs = Math.min(currentPollMs + 500, MAX_POLL_MS);
             renderDrink(snapshot, false);
             if (snapshot.score !== null) {
                 setScore(snapshot.score, false);
@@ -44,6 +46,7 @@ async function refreshState() {
             return;
         }
 
+        currentPollMs = POLL_MS;
         for (const event of payload.events) {
             lastSeq = Math.max(lastSeq, event.seq);
             playEvent(event);
@@ -53,6 +56,7 @@ async function refreshState() {
         setLiveAction("Disconnected", false);
     } finally {
         pollInFlight = false;
+        window.setTimeout(refreshState, currentPollMs);
     }
 }
 

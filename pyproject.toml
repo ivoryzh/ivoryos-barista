@@ -18,7 +18,7 @@ dependencies = [
 include-package-data = true
 
 [tool.setuptools.packages.find]
-include = ["barista_demo*", "barista_visual_plugin*"]
+include = ["barista_demo*", "barista_visual_plugin*", "barista_story_plugin*"]
 
 [tool.setuptools.package-data]
 barista_visual_plugin = [
@@ -26,4 +26,7 @@ barista_visual_plugin = [
     "static/css/*.css",
     "static/js/*.js",
     "static/img/*.svg",
+]
+barista_story_plugin = [
+    "templates/*.html",
 ]

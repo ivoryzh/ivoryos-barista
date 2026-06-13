@@ -1,0 +1,218 @@
+{% if base_exists %}
+    {% extends 'base.html' %}
+    {% block title %}Story{% endblock %}
+{% else %}
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js" integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    </head>
+{% endif %}
+
+{% block body %}
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap');
+
+        .story-container {
+            font-family: 'Outfit', sans-serif;
+            background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+            min-height: 100vh;
+            padding: 60px 20px;
+        }
+
+        .story-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            box-shadow: 0 8px 32px rgba(31, 38, 135, 0.07);
+            padding: 40px;
+            margin-bottom: 30px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeUp 0.6s forwards;
+        }
+
+        .story-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px rgba(31, 38, 135, 0.12);
+        }
+
+        .story-card:nth-child(1) { animation-delay: 0.1s; }
+        .story-card:nth-child(2) { animation-delay: 0.2s; }
+        .story-card:nth-child(3) { animation-delay: 0.3s; }
+        .story-card:nth-child(4) { animation-delay: 0.4s; }
+        .story-card:nth-child(5) { animation-delay: 0.5s; }
+
+        @keyframes fadeUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .gradient-text {
+            background: linear-gradient(45deg, #FF512F 0%, #DD2476 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 800;
+        }
+
+        .gradient-text-alt {
+            background: linear-gradient(45deg, #11998e 0%, #38ef7d 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 800;
+        }
+        
+        .gradient-text-blue {
+            background: linear-gradient(45deg, #4facfe 0%, #00f2fe 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 800;
+        }
+
+        h1, h2, h3 {
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+
+        p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #4a4a4a;
+            font-weight: 300;
+        }
+
+        .feature-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .feature-list li {
+            margin-bottom: 15px;
+            padding-left: 35px;
+            position: relative;
+            font-size: 1.1rem;
+            color: #4a4a4a;
+        }
+
+        .feature-list li::before {
+            content: '✨';
+            position: absolute;
+            left: 0;
+            top: 2px;
+            font-size: 1.2rem;
+        }
+
+        .code-box {
+            background: #1e1e1e;
+            color: #d4d4d4;
+            padding: 20px;
+            border-radius: 12px;
+            font-family: monospace;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);
+            border: 1px solid #333;
+            transition: all 0.3s ease;
+        }
+
+        .code-box:hover {
+            box-shadow: 0 0 15px rgba(0, 242, 254, 0.3);
+            border-color: rgba(0, 242, 254, 0.5);
+        }
+
+        .highlight-box {
+            background: rgba(255, 81, 47, 0.05);
+            border-left: 4px solid #FF512F;
+            padding: 20px;
+            border-radius: 0 12px 12px 0;
+            margin: 20px 0;
+        }
+    </style>
+
+    <div class="story-container">
+        <div class="container" style="max-width: 900px;">
+            
+            <div class="text-center mb-5 mt-4" style="animation: fadeUp 0.6s forwards;">
+                <h1 class="display-4 gradient-text mb-3">The Barista & The Lab</h1>
+                <p class="lead text-muted" style="font-size: 1.4rem;">Understanding Self-Driving Labs and IvoryOS through a coffee shop.</p>
+            </div>
+
+            <!-- Card 1: The Story -->
+            <div class="story-card">
+                <h2 class="gradient-text-blue mb-4"><i class="bi bi-cup-hot me-2"></i>The Story</h2>
+                <p>Making good coffee is a science. You change inputs, observe the outcome, collect feedback, and try again until the result improves.</p>
+                <div class="highlight-box">
+                    <p class="mb-0"><strong>The Setup:</strong> You have a customer who doesn't know exactly what they want, but they can still tell you whether they like the drink by giving it a score.</p>
+                </div>
+                <p>As the barista, you are given a Python-driven automated coffee machine. You want to explore different recipes and satisfy the customer, but you do not want to lose your sanity repeating the same trials over and over again by hand. You want to automate that process.</p>
+                <p><strong>There is one problem: baristas do not code.</strong> If the machine is only accessible through Python, the person who actually needs to run it is blocked by the interface.</p>
+            </div>
+
+            <!-- Card 2: From Code to Interface -->
+            <div class="story-card">
+                <h2 class="gradient-text-alt mb-4"><i class="bi bi-diagram-3 me-2"></i>From Code To Interface</h2>
+                <p>That is where <strong>IvoryOS</strong> comes in.</p>
+                <p>IvoryOS can take Python-defined systems and turn them into a drag-and-drop interface, so the barista can operate and automate the process without writing a single line of code. It also opens the door to AI-assisted optimization, where optimizers can learn from previous trials and suggest better next experiments.</p>
+                <p>In other words, the barista is not limited to manually trying random recipes. They can use a visual workflow builder, access the underlying generated Python when needed, and plug into optimizers that improve suggestions based on earlier results.</p>
+            </div>
+
+            <!-- Card 3: From Code to Platform -->
+            <div class="story-card">
+                <h2 class="gradient-text mb-4"><i class="bi bi-globe2 me-2"></i>From Code To Platform</h2>
+                <p>Showing how one code repository works is useful, but it is only the first step. The bigger question is what happens when you want to expand one coffee shop into a whole coffee chain.</p>
+                <p>Now you do not just need one machine. You need a way to distribute that machine configuration, share the recipes, and teach other baristas how to operate the same workflow without rebuilding everything from scratch.</p>
+                <p>That is where <strong>IvoryOS Hub</strong> comes in. You configure your coffee machine, create and share recipes, and publish the full setup for others to use.</p>
+                
+                <div class="highlight-box mt-4">
+                    <h5 class="fw-bold mb-3">A no-code GitHub for platforms and workflows:</h5>
+                    <ul class="feature-list mb-0">
+                        <li>You define the machine setup.</li>
+                        <li>You save the workflow.</li>
+                        <li>You publish the platform.</li>
+                        <li>Other people can reuse it with the logic already in place.</li>
+                    </ul>
+                </div>
+                <p class="mt-4">Explore the platform: <a href="https://ivoryos.ai/hub/platforms" class="fw-bold text-decoration-none" style="color: #FF512F;">ivoryos.ai/hub/platforms <i class="bi bi-arrow-right"></i></a></p>
+            </div>
+
+            <!-- Card 4: In SDL Terms -->
+            <div class="story-card">
+                <h2 class="gradient-text-blue mb-4"><i class="bi bi-flask me-2"></i>In SDL Terms</h2>
+                <p class="mb-4">This coffee-shop story maps directly onto a Self-Driving Lab (SDL):</p>
+                
+                <div class="row g-4">
+                    <div class="col-md-6">
+                        <ul class="feature-list">
+                            <li><strong>Automated Coffee Machine:</strong> Automated experimental system / instrument stack.</li>
+                            <li><strong>Recipe Inputs:</strong> Experimental workflows and parameters.</li>
+                            <li><strong>Customer Score:</strong> The measurement or objective to optimize.</li>
+                            <li><strong>Repeated Trials:</strong> Iterative experiment cycles.</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <ul class="feature-list">
+                            <li><strong>The Barista:</strong> The non-coder who runs and adjusts the workflow.</li>
+                            <li><strong>IvoryOS:</strong> The interface turning Python into usable tools.</li>
+                            <li><strong>Optimization Tools:</strong> Methods like Bayesian Optimization.</li>
+                            <li><strong>IvoryOS Hub:</strong> The distribution layer for sharing complete platforms.</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <p class="mt-4 pt-3 border-top text-center fw-bold text-muted">
+                    This is why this demo is more than a coffee example. It bridges the gap between programmable automation and the people who actually use it in a self-driving lab.
+                </p>
+            </div>
+
+
+
+        </div>
+    </div>
+{% endblock %}
