@@ -1,3 +1,7 @@
+# fly.toml app configuration file generated for ivoryos-barista on 2026-06-13T00:09:40Z
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
 
 app = 'ivoryos-barista'
 primary_region = 'sin'
