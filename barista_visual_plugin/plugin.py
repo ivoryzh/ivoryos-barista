@@ -1,7 +1,7 @@
 from flask import Blueprint, Flask, current_app, jsonify, render_template, request
 import os
 
-from .runtime import runtime
+from barista_visual_plugin.runtime import runtime
 
 barista_visual_bp = Blueprint(
     "barista_visual_plugin",
